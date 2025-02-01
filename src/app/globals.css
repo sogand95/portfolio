@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 48 89% 95%;
+  --foreground: 276 100% 5%;
+  --primary: 332 87% 67%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 45 100% 71%;
+  --accent-foreground: 285 100% 19%;
+
+  /* Progress bar custom colors */
+  --progress-background: 0 0% 90%;
+  --progress-foreground: 332 87% 67%;
+}
+
+.dark {
+  --background: 276 100% 11%; /* Updated to match the logo background (#11001B) */
+  --foreground: 0 0% 100%;
+  --primary: 332 87% 67%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 285 100% 19%;
+  --accent-foreground: 45 100% 71%;
+
+  /* Progress bar custom colors for dark mode */
+  --progress-background: 0 0% 20%;
+  --progress-foreground: 332 87% 67%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styling for Progress component */
+.progress {
+  @apply bg-[hsl(var(--progress-background))];
+}
+
+.progress-indicator {
+  @apply bg-[hsl(var(--progress-foreground))];
+}
+
+/* Additional dark mode adjustments */
+.dark .bg-accent\/5 {
+  @apply bg-accent/10; /* Slightly increase opacity for better visibility in dark mode */
+}
+
+.dark .text-muted-foreground {
+  @apply text-gray-400; /* Adjust muted text color for better readability in dark mode */
+}
